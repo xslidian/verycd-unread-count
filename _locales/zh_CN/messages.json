@@ -1,0 +1,14 @@
+{
+   "extension_copyright": {
+      "message": "版权所有 2011 xslidian。不保留权利。"
+   },
+   "extension_description": {
+      "message": "无需访问 VeryCD 即可查看未读通知数目。"
+   },
+   "extension_name": {
+      "message": "VeryCD 未读信息指示器"
+   },
+   "loading": {
+      "message": "正在加载..."
+   }
+}

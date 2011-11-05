@@ -1,0 +1,14 @@
+{
+   "extension_copyright": {
+      "message": "Copyright 2011 xslidian. No Rights Reserved."
+   },
+   "extension_description": {
+      "message": "View count of unread VeryCD notifications without visiting the site."
+   },
+   "extension_name": {
+      "message": "VeryCD Unread Count"
+   },
+   "loading": {
+      "message": "Loading..."
+   }
+}

@@ -1,0 +1,14 @@
+{
+   "extension_copyright": {
+      "message": "版權所有 2011 xslidian. 無權利保留"
+   },
+   "extension_description": {
+      "message": "無須造訪 VeryCD 即可審閱未讀訊息數目"
+   },
+   "extension_name": {
+      "message": "VeryCD 訊息數"
+   },
+   "loading": {
+      "message": "載入中..."
+   }
+}
