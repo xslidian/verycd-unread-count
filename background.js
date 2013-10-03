@@ -1,3 +1,48 @@
+var api = { // https://github.com/Sneezry/music.163.com/commit/1c71666efb49799958879f71b9ce64a316cafc97
+	httpRequest: function(method, action, query, urlencoded, callback, timeout){
+		var url = "GET" == method ? (query ? action+"?"+query : action) : action;
+		var timecounter;
+
+		if(this.debug){
+			this.outputDebug("httpRequest: method("+method+") action("+action+") query("+query+") urlencoded("+(urlencoded?1:0)+")");
+		}
+
+		var xhr = new XMLHttpRequest();
+		xhr.open(method, url, true);
+		if("POST" == method && urlencoded){
+			xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		}
+		xhr.onreadystatechange = function() {
+			if (xhr.readyState == 4) {
+				if(timecounter){
+					clearTimeout(timecounter);
+				}
+				if(this.debug){
+					this.outputDebug(xhr.responseText);
+				}
+				if(callback){
+					callback(xhr.responseText);
+				}
+			}
+		}
+		xhr.addEventListener('error', function(){callback(-1)}, false);
+		xhr.addEventListener('abort', function(){callback(-2)}, false);
+		if("POST" == method && query){
+			xhr.send(query);
+		}
+		else{
+			xhr.send();
+		}
+		if(timeout){
+			timecounter = setTimeout(function(){
+				if(xhr.readyState != 4){
+					xhr.abort();
+				}
+			}, timeout);
+		}
+	}
+};
+
 	var VeryCD={Members:{Messages:{'unRead':-1,'sinat':false,'qqt':false}}};
 	chrome.browserAction.onClicked.addListener(function() {
 		chrome.tabs.create({url: 'http://home.verycd.com/space.php?do=pm&filter=newpm'})});
