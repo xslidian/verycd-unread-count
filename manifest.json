@@ -1,15 +1,21 @@
 {
-   "background_page": "background.html",
+   "background": {
+      "scripts": [
+         "background.js"
+      ]
+   },
    "browser_action": {
       "default_title": "__MSG_extension_name__",
       "icon": "icons/icon.png"
    },
+   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
    "default_locale": "en",
    "description": "__MSG_extension_description__",
    "icons": {
       "128": "icons/icon.png"
    },
    "incognito": "split",
+   "manifest_version": 2,
    "name": "__MSG_extension_name__",
    "permissions": [ "tabs", "*://*.verycd.com/" ],
    "version": "0.1"
