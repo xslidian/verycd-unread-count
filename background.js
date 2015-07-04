@@ -44,6 +44,7 @@ var api = { // https://github.com/Sneezry/music.163.com/commit/1c71666efb4979995
 };
 
 	var VeryCD={"fans":0,"comment":0,"playlink":0,"message":0,"friend_comment":0,"thread":0,"all":0,"feed_tabs":{"all":0,"playlink":0,"friend_comment":0,"thread":0},"is_banned_change_exp":0};
+	var keys = ['message', 'comment', 'friend_comment', 'thread', 'fans', 'playlink'];
 	chrome.browserAction.onClicked.addListener(function() {
 		chrome.tabs.create({url: 'http://home.verycd.com/space.php?do=pm&filter=newpm'})});
 	chrome.browserAction.setBadgeText({text:'...'});
@@ -56,6 +57,10 @@ var api = { // https://github.com/Sneezry/music.163.com/commit/1c71666efb4979995
 			var r = JSON.parse(t);
 			if(!r || r.code != 0) { // 网站异常
 				console.log(new Date().toLocaleString() + '\t' + t);
+				if(r.code){
+					chrome.browserAction.setBadgeText({text: '!'});
+					chrome.browserAction.setTitle({title: r.code + ' ' + r.msg});
+				}
 				return;
 			}
 			var j = r.msg ? JSON.parse(r.msg) : false;
@@ -68,5 +73,11 @@ var api = { // https://github.com/Sneezry/music.163.com/commit/1c71666efb4979995
 	}
 	function updatebadge(/*num*/) {
 			chrome.browserAction.setBadgeText({text:VeryCD.all.toString()});
+			var 鼠标提示 = '';
+			keys.forEach(function(k){
+				//console.log(k, VeryCD[k]);
+				鼠标提示 += k + ': ' + VeryCD[k] + '\n';
+			});
+			chrome.browserAction.setTitle({title: 鼠标提示});
 	}
 	setInterval("updatedata();", 1000*60);
