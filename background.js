@@ -49,11 +49,6 @@ var api = { // https://github.com/Sneezry/music.163.com/commit/1c71666efb4979995
 	chrome.browserAction.setBadgeText({text:'...'});
 	chrome.browserAction.setIcon({path:'icons/icon.png'});
 
-	function attachnum(element, index, array) {
-		if (element.selected==true)
-			chrome.browserAction.setBadgeText({text:VeryCD.all.toString(),tabId:element.id});
-		console.log(element);
-	}
 	function updatedata(/*num*/) {
 		api.httpRequest('POST', 'http://www.verycd.com/ajax/i/notice', '', true, function(t){
 			//console.log(t);
@@ -72,15 +67,6 @@ var api = { // https://github.com/Sneezry/music.163.com/commit/1c71666efb4979995
 		});
 	}
 	function updatebadge(/*num*/) {
-		chrome.windows.getLastFocused(function (activewindow) {
-			if (activewindow.focused) {
-			console.log(new Date().getTime() + ' ' + VeryCD.all.toString() + ' (cached)');
-			chrome.tabs.getAllInWindow(activewindow.id,function(tabs){
-				tabs.forEach(attachnum);
-				});
 			chrome.browserAction.setBadgeText({text:VeryCD.all.toString()});
-			}
-		});
 	}
 	setInterval("updatedata();", 1000*60);
-	//chrome.windows.onFocusChanged.addListener(function(integer windowId) {updatebadge()});
