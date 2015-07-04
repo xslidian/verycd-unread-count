@@ -75,6 +75,5 @@ var api = { // https://github.com/Sneezry/music.163.com/commit/1c71666efb4979995
 			}
 		});
 	}
-	setInterval("updatedata();", 10000);
-	setInterval("updatebadge();", 1000);
+	setInterval("updatedata();", 1000*60);
 	//chrome.windows.onFocusChanged.addListener(function(integer windowId) {updatebadge()});
