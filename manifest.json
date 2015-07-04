@@ -14,7 +14,6 @@
    "icons": {
       "128": "icons/icon.png"
    },
-   "incognito": "split",
    "manifest_version": 2,
    "name": "__MSG_extension_name__",
    "permissions": [ "tabs", "*://*.verycd.com/" ],
