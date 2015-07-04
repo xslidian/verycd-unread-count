@@ -17,5 +17,5 @@
    "manifest_version": 2,
    "name": "__MSG_extension_name__",
    "permissions": [ "tabs", "*://*.verycd.com/" ],
-   "version": "0.1"
+   "version": "0.2"
 }
