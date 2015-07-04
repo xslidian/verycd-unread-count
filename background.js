@@ -80,4 +80,6 @@ var api = { // https://github.com/Sneezry/music.163.com/commit/1c71666efb4979995
 			});
 			chrome.browserAction.setTitle({title: 鼠标提示});
 	}
-	setInterval("updatedata();", 1000*60);
+
+updatedata();
+setInterval(updatedata, 1000*60);
