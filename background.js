@@ -46,7 +46,8 @@ var api = { // https://github.com/Sneezry/music.163.com/commit/1c71666efb4979995
 	var VeryCD={"fans":0,"comment":0,"playlink":0,"message":0,"friend_comment":0,"thread":0,"all":0,"feed_tabs":{"all":0,"playlink":0,"friend_comment":0,"thread":0},"is_banned_change_exp":0};
 	var keys = ['message', 'comment', 'friend_comment', 'thread', 'fans', 'playlink'];
 	chrome.browserAction.onClicked.addListener(function() {
-		chrome.tabs.create({url: 'http://home.verycd.com/space.php?do=pm&filter=newpm'})});
+		window.open('http://www.verycd.com/');
+});
 	chrome.browserAction.setBadgeText({text:'...'});
 	chrome.browserAction.setIcon({path:'icons/icon.png'});
 
